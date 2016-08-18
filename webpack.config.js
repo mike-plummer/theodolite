@@ -1,4 +1,4 @@
-var webpack = require("webpack");
+var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 var Dashboard = require('webpack-dashboard');
@@ -6,54 +6,62 @@ var DashboardPlugin = require('webpack-dashboard/plugin');
 var dashboard = new Dashboard();
 
 module.exports = {
-    entry: "./src/app/main.ts",
-    devtool: 'source-map',
-    resolve: {
-      extensions: ["", ".ts", ".js"]
-    },
-    module: {
-        loaders: [
-            {
-                test: /\.ts/,
-                loader: 'ts-loader',
-                exclude: /node_modules/
-            }, {
-                test: /\.html$/,
-                exclude: [ /node_modules/, './src/app/views/index.html' ],
-                loader: "html-loader"
-            }, {
-                test: /\.css$/,
-                exclude: /node_modules/,
-                loader: "raw-loader"
-            }, {
-                test: /\.(jpe?g|png)$/i,
-                exclude: /node_modules/,
-                loader: 'file-loader'
-            }
-        ]
-    },
-    plugins: [
-        // Optimize IDs so that the resources that are most commonly referenced end up with the shortest Ids (reducing size)
-        new webpack.optimize.OccurenceOrderPlugin(true),
+  entry: './src/app/main.ts',
+  devtool: 'source-map',
+  resolve: {
+    extensions: ['', '.ts', '.js']
+  },
+  module: {
+    loaders: [
+      {
+        test: /\.ts/,
+        exclude: /node_modules/,
+        loader: 'ts',
+      }, {
+        test: /\.html$/,
+        exclude: [/node_modules/, './src/assets/index.html'],
+        loader: 'html'
+      }, {
+        test: /\.pug/,
+        exclude: /node_modules/,
+        loader: 'html?attrs=img:src!pug-html-loader'
+      }, {
+        test: /\.scss/,
+        exclude: /node_modules/,
+        loaders: ['style', 'css', 'sass']
+      }, {
+        test: /\.css$/,
+        exclude: /node_modules/,
+        loader: ['style', 'css']
+      }, {
+        test: /\.(jpe?g|png)$/i,
+        exclude: /node_modules/,
+        loader: 'file'
+      }
+    ]
+  },
+  plugins: [
+    // Optimize IDs so that the resources that are most commonly referenced end up with the shortest Ids (reducing size)
+    new webpack.optimize.OccurenceOrderPlugin(true),
 
-        new webpack.optimize.UglifyJsPlugin({
-            // Must disable mangle or else Angular is unhappy and no-worky
-            mangle: false,
-            comments: false,
-            compress: {
-                warnings: false
-            }
-        }),
+    new webpack.optimize.UglifyJsPlugin({
+      // Must disable mangle or else Angular is unhappy and no-worky
+      mangle: false,
+      comments: false,
+      compress: {
+        warnings: false
+      }
+    }),
 
-        new HtmlWebpackPlugin({
-            title: 'theodolite',
-            template: 'src/app/views/index.html'
-        }),
+    new HtmlWebpackPlugin({
+      title: 'theodolite',
+      template: 'src/assets/index.html'
+    }),
 
-        new DashboardPlugin(dashboard.setData)
-    ],
-    devServer: {
-        port: 8000,
-        host: 'localhost'
-    }
+    new DashboardPlugin(dashboard.setData)
+  ],
+  devServer: {
+    port: 8000,
+    host: 'localhost'
+  }
 };

@@ -1,10 +1,10 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { PresentationComponent }  from './presentation.component';
+import PresentationComponent  from './presentation/presentation.component';
 
 @NgModule({
     imports:      [ BrowserModule ],
     declarations: [ PresentationComponent ],
     bootstrap:    [ PresentationComponent ]
 })
-export class CoreModule { }
+export default class CoreModule { }
