@@ -19,7 +19,7 @@ module.exports = {
         loader: 'ts',
       }, {
         test: /\.html$/,
-        exclude: [/node_modules/, './src/assets/index.html'],
+        exclude: [/node_modules/, './src/index.html'],
         loader: 'html'
       }, {
         test: /\.pug/,
@@ -55,7 +55,7 @@ module.exports = {
 
     new HtmlWebpackPlugin({
       title: 'theodolite',
-      template: 'src/assets/index.html'
+      template: 'src/index.html'
     }),
 
     new DashboardPlugin(dashboard.setData)

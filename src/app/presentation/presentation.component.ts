@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import SlideComponent from '../slide/slide.component'
 
 @Component({
-    selector: 'presentation',
+    selector: 'tdlt-presentation',
     template: require('./presentation.pug'),
     directives: [],
     pipes: [],
