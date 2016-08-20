@@ -1,11 +1,12 @@
+import {uniqueId} from 'lodash';
 import {SlideType} from './SlideType';
 
-abstract class Slide {
+export default class Slide {
     public id: string;
-    public styles: Array<string>;
+    public content: string;
+    public slideType: SlideType;
 
-    // TS 2.0 supports abstract 'getter' functions, convert when possible
-    abstract getSlideType(): SlideType;
+    constructor() {
+        this.id = uniqueId();
+    }
 }
-
-export default Slide;

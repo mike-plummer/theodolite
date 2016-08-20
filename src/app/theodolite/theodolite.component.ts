@@ -1,6 +1,7 @@
 import {Component, ViewEncapsulation} from '@angular/core';
 import FileLoaderComponent from '../fileLoader/fileLoader.component';
 import PresentationComponent from '../presentation/presentation.component';
+import MarkdownService from '../markdown/markdown.service';
 import Presentation from '../model/Presentation';
 
 @Component({
@@ -10,12 +11,15 @@ import Presentation from '../model/Presentation';
     pipes: [],
     styles: [require('./theodolite.scss').toString(), require('../../../node_modules/furtive/scss/all.scss').toString()],
     encapsulation: ViewEncapsulation.None,
-    providers: []
+    providers: [MarkdownService]
 })
 export default class TheodoliteComponent {
-    public presentation: Presentation;
 
     constructor() {
 
+    }
+
+    get presentation(): Presentation {
+        return null;
     }
 }

@@ -15,11 +15,10 @@ module.exports = {
     loaders: [
       {
         test: /\.ts$/,
-        exclude: /node_modules/,
         loader: 'ts'
       }, {
         test: /\.html$/,
-        exclude: [/node_modules/, './src/index.html'],
+        exclude: ['./src/index.html'],
         loader: 'html'
       }, {
         test: /\.pug$/,
@@ -30,11 +29,9 @@ module.exports = {
         loaders: ['style', 'css', 'sass']
       }, {
         test: /\.css$/,
-        exclude: /node_modules/,
         loaders: ['style', 'css']
       }, {
         test: /\.(jpe?g|png)$/i,
-        exclude: /node_modules/,
         loader: 'file'
       }
     ]
