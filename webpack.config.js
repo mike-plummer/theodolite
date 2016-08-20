@@ -14,25 +14,24 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.ts/,
+        test: /\.ts$/,
         exclude: /node_modules/,
-        loader: 'ts',
+        loader: 'ts'
       }, {
         test: /\.html$/,
         exclude: [/node_modules/, './src/index.html'],
         loader: 'html'
       }, {
-        test: /\.pug/,
+        test: /\.pug$/,
         exclude: /node_modules/,
         loader: 'html?attrs=img:src!pug-html-loader'
       }, {
-        test: /\.scss/,
-        exclude: /node_modules/,
+        test: /\.(scss|sass)$/,
         loaders: ['style', 'css', 'sass']
       }, {
         test: /\.css$/,
         exclude: /node_modules/,
-        loader: ['style', 'css']
+        loaders: ['style', 'css']
       }, {
         test: /\.(jpe?g|png)$/i,
         exclude: /node_modules/,
