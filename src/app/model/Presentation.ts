@@ -1,6 +1,6 @@
-import Slide from './Slide';
+import { Slide } from './Slide';
 
-export default class Presentation {
+export class Presentation {
     public title: string;
     public author: string;
     public slides: Array<Slide>

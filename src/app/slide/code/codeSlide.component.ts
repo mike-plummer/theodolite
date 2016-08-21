@@ -1,5 +1,5 @@
-import {Component, Input, OnInit} from '@angular/core';
-import Slide from '../../model/Slide';
+import { Component, Input, OnInit } from '@angular/core';
+import { Slide } from '../../model/Slide';
 
 @Component({
     selector: 'tdlt-code-slide',
@@ -9,7 +9,7 @@ import Slide from '../../model/Slide';
     styles: [require('./codeSlide.scss').toString()],
     providers: []
 })
-export default class CodeSlideComponent implements OnInit {
+export class CodeSlideComponent implements OnInit {
 
     @Input() public slide: Slide;
 

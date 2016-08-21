@@ -1,10 +1,9 @@
-import Presentation from '../model/Presentation';
-import {Injectable} from '@angular/core';
-import {SlideType} from '../model/SlideType';
-import Slide from '../model/Slide';
+import { Presentation } from '../model/Presentation';
+import { Injectable } from '@angular/core';
+import { Slide } from '../model/Slide';
 
 @Injectable()
-export default class ParseService {
+export class ParseService {
 
     public parse(fileContent): Presentation {
         const rawPresentation = JSON.parse(fileContent, this.transform);

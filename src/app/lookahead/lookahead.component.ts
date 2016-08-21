@@ -1,6 +1,6 @@
-import {Component, Input} from '@angular/core';
-import Presentation from '../model/Presentation';
-import PresentationComponent from '../presentation/presentation.component';
+import { Component, Input } from '@angular/core';
+import { Presentation } from '../model/Presentation';
+import { PresentationComponent } from '../presentation/presentation.component';
 
 @Component({
     selector: 'tdlt-lookahead',
@@ -10,7 +10,7 @@ import PresentationComponent from '../presentation/presentation.component';
     styles: [require('./lookahead.scss').toString()],
     providers: []
 })
-export default class LookaheadComponent {
+export class LookaheadComponent {
 
     @Input() public presentation: Presentation;
 

@@ -1,10 +1,10 @@
-import {Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
 
 const highlightjs = require('highlight.js');
 const marked = require('marked');
 
 @Injectable()
-export default class MarkdownService {
+export class MarkdownService {
 
     constructor() {
         marked.setOptions({

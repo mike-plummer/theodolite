@@ -1,6 +1,6 @@
-import {Component, Inject, Input, OnInit} from '@angular/core';
-import MarkdownService from '../../markdown/markdown.service';
-import Slide from '../../model/Slide';
+import { Component, Inject, Input, OnInit } from '@angular/core';
+import { MarkdownService } from '../../markdown/markdown.service';
+import { Slide } from '../../model/Slide';
 
 @Component({
     selector: 'tdlt-markdown-slide',
@@ -10,7 +10,7 @@ import Slide from '../../model/Slide';
     styles: [require('./markdownSlide.scss').toString()],
     providers: []
 })
-export default class MarkdownSlideComponent implements OnInit {
+export class MarkdownSlideComponent implements OnInit {
 
     @Input() public slide: Slide;
     public content: string;

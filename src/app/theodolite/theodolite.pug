@@ -1,9 +1,11 @@
 div.grd
   div.grd-row
-    div.grd-row-col
-      img.col-1(src='../../assets/logo.png')
-    div.grd-row-col
-      h2.col-1 Theodolite
+    a.btn--blue((click)="onAboutClick()") About
+    //span(*ngIf="showInfoPane")
+      div.grd-row-col
+        img.col-1(src='../../assets/logo.png')
+      div.grd-row-col
+        h2.col-1 Theodolite
 
   div.grd-row
     div.grd-row-col

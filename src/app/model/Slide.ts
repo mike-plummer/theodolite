@@ -1,7 +1,7 @@
-import {uniqueId} from 'lodash';
-import {SlideType} from './SlideType';
+import { uniqueId } from 'lodash';
+import { SlideType } from './SlideType';
 
-export default class Slide {
+export class Slide {
     constructor(public content: string,
                 public type: SlideType,
                 public id: string = uniqueId()) {

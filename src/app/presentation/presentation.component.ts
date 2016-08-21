@@ -1,7 +1,7 @@
-import {Component, Input} from '@angular/core';
-import Presentation from '../model/Presentation';
-import MarkdownSlideComponent from '../slide/markdown/markdownSlide.component';
-import CodeSlideComponent from '../slide/code/codeSlide.component';
+import { Component, Input } from '@angular/core';
+import { Presentation } from '../model/Presentation';
+import { MarkdownSlideComponent } from '../slide/markdown/markdownSlide.component';
+import { CodeSlideComponent } from '../slide/code/codeSlide.component';
 
 @Component({
     selector: 'tdlt-presentation',
@@ -11,7 +11,7 @@ import CodeSlideComponent from '../slide/code/codeSlide.component';
     styles: [require('./presentation.scss').toString()],
     providers: []
 })
-export default class PresentationComponent {
+export class PresentationComponent {
 
     @Input() public presentation: Presentation;
     public activeSlide: number = 0;
