@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import Slide from '../../model/Slide';
 
 @Component({
@@ -9,9 +9,18 @@ import Slide from '../../model/Slide';
     styles: [require('./codeSlide.scss').toString()],
     providers: []
 })
-export default class CodeSlideComponent {
+export default class CodeSlideComponent implements OnInit {
 
-    constructor(private slide: Slide) {
+    @Input() public slide: Slide;
 
+    public content: string;
+
+    constructor() {
+
+    }
+
+    ngOnInit(): void {
+        // TODO: Add code highlighting
+        this.content = this.slide.content
     }
 }

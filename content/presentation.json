@@ -1,0 +1,10 @@
+{
+  "name": "Theodolite!",
+  "author": "Mike Plummer",
+  "slides": [
+    {
+      "type": "MARKDOWN",
+      "contentFile": "slide_1.md"
+    }
+  ]
+}

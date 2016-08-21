@@ -14,6 +14,7 @@ import CodeSlideComponent from '../slide/code/codeSlide.component';
 export default class PresentationComponent {
 
     @Input() public presentation: Presentation;
+    public activeSlide: number = 0;
 
     constructor() {
 

@@ -1,4 +1,4 @@
-import {Component, Inject} from '@angular/core';
+import {Component, Inject, Input, OnInit} from '@angular/core';
 import MarkdownService from '../../markdown/markdown.service';
 import Slide from '../../model/Slide';
 
@@ -10,10 +10,15 @@ import Slide from '../../model/Slide';
     styles: [require('./markdownSlide.scss').toString()],
     providers: []
 })
-export default class MarkdownSlideComponent {
+export default class MarkdownSlideComponent implements OnInit {
 
-    constructor(private slide: Slide,
-                @Inject(MarkdownService) markdownService: MarkdownService) {
+    @Input() public slide: Slide;
+    public content: string;
 
+    constructor(@Inject(MarkdownService) private markdownService: MarkdownService) {
+    }
+
+    ngOnInit(): void {
+        this.content = this.markdownService.parse(this.slide.content);
     }
 }

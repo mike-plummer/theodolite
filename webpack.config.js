@@ -18,7 +18,7 @@ module.exports = {
         loader: 'ts'
       }, {
         test: /\.html$/,
-        exclude: ['./src/index.html'],
+        excludes: ['./src/index.html'],
         loader: 'html'
       }, {
         test: /\.pug$/,

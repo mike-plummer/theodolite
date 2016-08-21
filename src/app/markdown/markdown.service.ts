@@ -1,20 +1,21 @@
 import {Injectable} from '@angular/core';
 
+const highlightjs = require('highlight.js');
+const marked = require('marked');
+
 @Injectable()
 export default class MarkdownService {
 
-    private marked = require('marked');
-
     constructor() {
-        this.marked.setOptions({
+        marked.setOptions({
             highlight: function (code) {
-                return require('highlight.js').highlightAuto(code).value;
+                return highlightjs.highlightAuto(code).value;
             }
         });
     }
 
     public parse(markdown): string {
-        return this.marked(markdown);
+        return marked(markdown);
     }
 }
 
