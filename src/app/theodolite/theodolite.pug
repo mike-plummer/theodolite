@@ -1,17 +1,7 @@
 div.theodolite
-  div.grd
-    div.grd-row
-      a.btn--blue((click)="onAboutClick()") About
-      div.grd-row-col
-        div.col-5(*ngIf="showInfoPane")
-          div.grd
-            div.grd-row
-              div.grd-row-col
-                img.col-1(src='../../assets/logo.png')
-              div.grd-row-col
-                h2.col-1 Theodolite
 
+  tdlt-menu
 
-p Why are you trying to use this? It isn't done yet.
+  p Why are you trying to use this? It isn't done yet.
 
-tdlt-presentation([presentation]="presentation")
+  tdlt-presentation([presentation]="presentation")
