@@ -23,7 +23,7 @@ module.exports = {
       }, {
         test: /\.pug$/,
         exclude: /node_modules/,
-        loader: 'html?attrs=img:src!pug-html-loader'
+        loader: 'html!pug-html-loader'
       }, {
         test: /\.(scss|sass)$/,
         loaders: ['style', 'css', 'sass']
@@ -35,6 +35,15 @@ module.exports = {
         loader: 'file'
       }
     ]
+  },
+  htmlLoader: {
+    minimize: true,
+    removeAttributeQuotes: false,
+    caseSensitive: true,
+    // Teach html-minifier about Angular 2 syntax
+    customAttrSurround: [ [/#/, /(?:)/], [/\*/, /(?:)/], [/\[?\(?/, /(?:)/] ],
+    customAttrAssign: [ /\)?\]?=/ ],
+    attrs: ['img:src', 'link:href']
   },
   plugins: [
     // Optimize IDs so that the resources that are most commonly referenced end up with the shortest Ids (reducing size)
