@@ -1,4 +1,4 @@
-import { Component, Inject, Input, OnInit } from '@angular/core';
+import { Component, Inject, Input, SimpleChange, OnChanges } from '@angular/core';
 import { MarkdownService } from '../../markdown/markdown.service';
 import { Slide } from '../../model/Slide';
 
@@ -10,7 +10,7 @@ import { Slide } from '../../model/Slide';
     styles: [require('./markdownSlide.scss').toString()],
     providers: []
 })
-export class MarkdownSlideComponent implements OnInit {
+export class MarkdownSlideComponent implements OnChanges {
 
     @Input() public slide: Slide;
     public content: string;
@@ -18,7 +18,9 @@ export class MarkdownSlideComponent implements OnInit {
     constructor(@Inject(MarkdownService) private markdownService: MarkdownService) {
     }
 
-    ngOnInit(): void {
-        this.content = this.markdownService.parse(this.slide.content);
+    ngOnChanges(changes: {[propertyName: string]: SimpleChange}) {
+        if (changes['slide']) {
+            this.content = this.markdownService.parse(this.slide.content);
+        }
     }
 }

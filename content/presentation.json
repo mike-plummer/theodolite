@@ -5,6 +5,9 @@
     {
       "type": "MARKDOWN",
       "contentFile": "slide_1.md"
+    }, {
+      "type": "MARKDOWN",
+      "contentFile": "slide_2.md"
     }
   ]
 }

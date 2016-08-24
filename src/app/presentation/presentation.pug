@@ -1,3 +1,5 @@
 h2 {{ presentation.name }} -- {{ presentation.author }}
 
 tdlt-markdown-slide([slide]="presentation.slides[activeSlide]")
+
+tdlt-controls([presentation]="presentation", (reverse)="reverse()", (forward)="forward()")

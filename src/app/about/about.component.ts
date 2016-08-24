@@ -1,5 +1,6 @@
 import { Component, HostListener, ViewChild } from '@angular/core';
 import { ModalComponent } from '../modal/modal.component';
+import { KEYCODES } from '../util/keycodes';
 
 @Component({
     selector: 'tdlt-about',
@@ -19,10 +20,8 @@ export class AboutComponent {
     constructor() {
     }
 
-    @HostListener('document:keypress', [ '$event' ]) onKey($event: KeyboardEvent) {
-        let character: string = $event.key;
-
-        if (character == 'a') {
+    @HostListener('document:keydown', [ '$event' ]) onKey($event: KeyboardEvent) {
+        if ($event.keyCode == KEYCODES.A) {
             this.modal.open();
         }
 

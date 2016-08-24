@@ -1,4 +1,4 @@
-# Example Markdown Slide
+# Markdown Examples (part 1)
 
 ## Paragraph
 
@@ -23,25 +23,3 @@ Captains in Chronological Order
 4. Picard
 5. Sisko
 6. Janeway
-
-## Tables
-
-|Series|Major Plot Point|
-|:----:|:--------------:|
-| TOS  | Klingons       |
-| TNG  | Romulans       |
-| DS9  | Dominion       |
-| VOY  | Borg           |
-| ALT  | Pew! Pew!      |
-| ENT  | Xindi          |
-
-## Quotes
-    Make it so.
-        - Jean Luc Picard
-        
-## Code
-```javascript
-const val = 5;
-val += 10;
-```
-
