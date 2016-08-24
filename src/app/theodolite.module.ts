@@ -6,11 +6,13 @@ import { PresentationComponent } from './presentation/presentation.component';
 import { MarkdownService } from './markdown/markdown.service';
 import { ParseService } from './parse/parse.service';
 import { BrowserModule } from '@angular/platform-browser';
-import { MenuModule } from './menu/menu.module';
+import { ControlsComponent } from './controls/controls.component';
+import { AboutComponent } from './about/about.component';
+import { ModalComponent } from './modal/modal.component';
 
 @NgModule({
-    imports: [ BrowserModule, MenuModule ],
-    declarations: [ TheodoliteComponent, PresentationComponent, MarkdownSlideComponent, CodeSlideComponent ],
+    imports: [ BrowserModule ],
+    declarations: [ TheodoliteComponent, PresentationComponent, MarkdownSlideComponent, CodeSlideComponent, ControlsComponent, AboutComponent, ModalComponent ],
     bootstrap: [ TheodoliteComponent ],
     providers: [ MarkdownService, ParseService ]
 })

@@ -6,7 +6,16 @@ var DashboardPlugin = require('webpack-dashboard/plugin');
 var dashboard = new Dashboard();
 
 module.exports = {
-  entry: './src/app/main.ts',
+  entry: {
+    vendor: './src/vendor.ts',
+    polyfills: './src/polyfills.ts',
+    main: './src/main.ts'
+  },
+  output: {
+    filename: '[name].bundle.js',
+    sourceMapFilename: '[name].map',
+    chunkFilename: '[id].chunk.js'
+  },
   devtool: 'source-map',
   resolve: {
     extensions: ['', '.ts', '.js']
@@ -58,9 +67,14 @@ module.exports = {
       }
     }),
 
+    new webpack.optimize.CommonsChunkPlugin({
+      name: ['polyfills', 'vendor'].reverse()
+    }),
+
     new HtmlWebpackPlugin({
       title: 'theodolite',
-      template: 'src/index.html'
+      template: 'src/index.html',
+      chunksSortMode: 'dependency'
     }),
 
     new DashboardPlugin(dashboard.setData)

@@ -1,0 +1,7 @@
+div.modal([ngClass]="{active: active}")
+  div.modal-container
+    p.title {{ title }}
+
+    div.content([innerHTML]="content")
+
+    a.btn((click)="close()") Close
