@@ -7,7 +7,7 @@ import { Slide } from '../../model/Slide';
     template: require('./markdownSlide.pug'),
     directives: [],
     pipes: [],
-    styles: [require('./markdownSlide.scss').toString()],
+    styles: [ require('./markdownSlide.scss').toString() ],
     providers: []
 })
 export class MarkdownSlideComponent implements OnChanges {
@@ -19,7 +19,7 @@ export class MarkdownSlideComponent implements OnChanges {
     }
 
     ngOnChanges(changes: {[propertyName: string]: SimpleChange}) {
-        if (changes['slide']) {
+        if (changes[ 'slide' ]) {
             this.content = this.markdownService.parse(this.slide.content);
         }
     }

@@ -1,4 +1,15 @@
-import { Component, Input, HostListener, Output, EventEmitter } from '@angular/core';
+import {
+    Component,
+    Input,
+    HostListener,
+    Output,
+    EventEmitter,
+    style,
+    state,
+    animate,
+    transition,
+    trigger
+} from '@angular/core';
 import { Presentation } from '../model/Presentation';
 import { KEYCODES } from '../util/keycodes';
 
@@ -7,12 +18,24 @@ import { KEYCODES } from '../util/keycodes';
     template: require('./controls.pug'),
     directives: [],
     pipes: [],
-    styles: [require('./controls.scss').toString()],
-    providers: []
+    styles: [ require('./controls.scss').toString() ],
+    providers: [],
+    animations: [
+        trigger('slideUpDown', [
+            state('in', style({transform: 'translateX(0)'})),
+            transition('void => *', [
+                style({transform: 'translateY(100%)'}),
+                animate(200, style({transform: 'translateY(0)'})),
+            ]),
+            transition('* => void', [
+                animate(200, style({transform: 'translateY(100%)'}))
+            ])
+        ])
+    ]
 })
 export class ControlsComponent {
 
-    @Output() public reverse: EventEmitter<boolean> = new EventEmitter<boolean>();
+    @Output() public backward: EventEmitter<boolean> = new EventEmitter<boolean>();
     @Output() public forward: EventEmitter<boolean> = new EventEmitter<boolean>();
 
     @Input() public presentation: Presentation;
@@ -27,11 +50,19 @@ export class ControlsComponent {
             this.displayed = !this.displayed;
             return false;
         } else if ($event.keyCode == KEYCODES.LEFT) {
-            this.reverse.emit(true);
+            this.goBackward();
         } else if ($event.keyCode == KEYCODES.RIGHT) {
-            this.forward.emit(true);
+            this.goForward();
         }
 
         return true;
+    }
+
+    goBackward() {
+        this.backward.emit(true);
+    }
+
+    goForward() {
+        this.forward.emit(true);
     }
 }

@@ -9,3 +9,7 @@ import '@angular/common';
 import 'highlight.js';
 import 'marked';
 import 'lodash';
+
+// Styles
+require('furtive/css/furtive.min.css');
+require('font-awesome/css/font-awesome.min.css');

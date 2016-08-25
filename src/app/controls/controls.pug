@@ -1,7 +1,9 @@
-div.controls(*ngIf="displayed")
+div.controls.bg--blue.fnt--off-white(*ngIf="displayed", [@slideUpDown]="displayed")
   div.grd
     div.grd-row
-      div.grd-row-col
-        div.col-1
-          p CONTROLS!
-
+      div.grd-row-col-2-6
+      div.grd-row-col-1-6.px2
+        i.fa.fa-backward((click)="goBackward()")
+      div.grd-row-col-1-6.px2
+        i.fa.fa-forward((click)="goForward()")
+      div.grd-row-col-2-6

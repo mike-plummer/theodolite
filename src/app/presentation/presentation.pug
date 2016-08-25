@@ -1,5 +1,11 @@
-h2 {{ presentation.name }} -- {{ presentation.author }}
-
-tdlt-markdown-slide([slide]="presentation.slides[activeSlide]")
-
-tdlt-controls([presentation]="presentation", (reverse)="reverse()", (forward)="forward()")
+div.presentation
+  div.grd
+    div.grd-row
+      div.grd-row-col-1
+        h2 {{ presentation.name }} -- {{ presentation.author }}
+    div.grd-row
+      div.grd-row-col-1
+        tdlt-markdown-slide([slide]="presentation.slides[activeSlide]")
+    div.grd-row
+      div.grd-row-col-1
+        tdlt-controls([presentation]="presentation", (backward)="backward()", (forward)="forward()")

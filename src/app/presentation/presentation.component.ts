@@ -21,7 +21,7 @@ export class PresentationComponent {
 
     }
 
-    reverse() {
+    backward() {
         if (this.activeSlide > 0) {
             this.activeSlide -= 1;
         }

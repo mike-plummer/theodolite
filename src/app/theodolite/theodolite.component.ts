@@ -7,7 +7,9 @@ import { ParseService } from '../parse/parse.service';
     selector: 'theodolite',
     template: require('./theodolite.pug'),
     directives: [ PresentationComponent ],
-    styles: [ require('./theodolite.scss').toString(), require('../../../node_modules/furtive/scss/all.scss').toString() ],
+    styles: [ require('./theodolite.scss').toString(),
+              require('furtive/css/furtive.min.css').toString(),
+              require('font-awesome/css/font-awesome.min.css').toString()],
     encapsulation: ViewEncapsulation.None
 })
 export class TheodoliteComponent {
@@ -16,7 +18,7 @@ export class TheodoliteComponent {
     public showInfoPane: boolean = false;
 
     constructor(@Inject(ParseService) private parseService: ParseService) {
-        let json = require('raw!../../../content/presentation.json').toString();
+        let json = require('raw!../../../content/presentation.json');
         this.presentation = parseService.parse(json);
     }
 
