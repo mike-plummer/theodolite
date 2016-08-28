@@ -8,7 +8,8 @@ import { DomSanitizationService, SafeHtml } from '@angular/platform-browser';
     template: require('./markdownSlide.pug'),
     directives: [],
     pipes: [],
-    styles: [ require('./markdownSlide.scss').toString() ],
+    styles: [ require('./markdownSlide.scss').toString(),
+              require('highlight.js/styles/default.css').toString() ],
     providers: []
 })
 export class MarkdownSlideComponent implements OnChanges {

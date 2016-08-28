@@ -19,4 +19,10 @@
 ```javascript
 const val = 5;
 val += 10;
+
+function buildPrint() {
+  return val => {
+    console.log(`${val}`);
+  };
+}
 ```

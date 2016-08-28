@@ -12,4 +12,5 @@ import 'lodash';
 
 // Styles
 require('furtive/css/furtive.min.css');
+require('highlight.js/styles/default.css');
 require('font-awesome/css/font-awesome.min.css');
