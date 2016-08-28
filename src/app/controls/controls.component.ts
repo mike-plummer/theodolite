@@ -10,14 +10,15 @@ import {
     transition,
     trigger
 } from '@angular/core';
-import { Presentation } from '../model/Presentation';
-import { KEYCODES } from '../util/keycodes';
+import { KEYCODES } from '../common/keycodes';
+import { DefaultValuePipe } from '../common/default.pipe';
+import { Presentation } from '../common/model/Presentation';
 
 @Component({
     selector: 'tdlt-controls',
     template: require('./controls.pug'),
     directives: [],
-    pipes: [],
+    pipes: [ DefaultValuePipe ],
     styles: [ require('./controls.scss').toString() ],
     providers: [],
     animations: [
@@ -35,11 +36,10 @@ import { KEYCODES } from '../util/keycodes';
 })
 export class ControlsComponent {
 
-    @Output() public backward: EventEmitter<boolean> = new EventEmitter<boolean>();
-    @Output() public forward: EventEmitter<boolean> = new EventEmitter<boolean>();
-
+    @Output() public slideChange: EventEmitter<number> = new EventEmitter<number>();
     @Input() public presentation: Presentation;
     public displayed: boolean = false;
+    public currentSlideIndex: number = 0;
 
     constructor() {
 
@@ -49,20 +49,40 @@ export class ControlsComponent {
         if ($event.keyCode == KEYCODES.SPACE) {
             this.displayed = !this.displayed;
             return false;
-        } else if ($event.keyCode == KEYCODES.LEFT) {
+        } else if ($event.keyCode == KEYCODES.LEFT && this.canGoBackward()) {
             this.goBackward();
-        } else if ($event.keyCode == KEYCODES.RIGHT) {
+        } else if ($event.keyCode == KEYCODES.RIGHT && this.canGoForward()) {
             this.goForward();
         }
 
         return true;
     }
 
+    goStart() {
+        this.slideChange.emit(this.currentSlideIndex = 0);
+    }
+
     goBackward() {
-        this.backward.emit(true);
+        this.slideChange.emit(--this.currentSlideIndex);
     }
 
     goForward() {
-        this.forward.emit(true);
+        this.slideChange.emit(++this.currentSlideIndex);
+    }
+
+    goEnd() {
+        this.slideChange.emit(this.currentSlideIndex = this.presentation.slides.length - 1);
+    }
+
+    onPresentationLoad() {
+        this.goStart();
+    }
+
+    canGoBackward() {
+        return this.currentSlideIndex > 0;
+    }
+
+    canGoForward() {
+        return this.currentSlideIndex < (this.presentation.slides.length - 1);
     }
 }

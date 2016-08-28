@@ -1,9 +1,14 @@
 div.controls.bg--blue.fnt--off-white(*ngIf="displayed", [@slideUpDown]="displayed")
   div.grd
     div.grd-row
-      div.grd-row-col-2-6
-      div.grd-row-col-1-6.px2
-        i.fa.fa-backward((click)="goBackward()")
-      div.grd-row-col-1-6.px2
-        i.fa.fa-forward((click)="goForward()")
-      div.grd-row-col-2-6
+      div.grd-row-col-1-6
+        span {{ presentation.title | default: 'No Title' }}
+        span(*ngIf="presentation.author") {{ ' - ' + presentation.author }}
+      div.grd-row-col-2-6.txt--right
+        i.fa.fa-step-backward.px2((click)="goStart()")
+        i.fa.fa-backward.px2((click)="goBackward()", [attr.disabled]="!canGoBackward()")
+      div.grd-row-col-1-6.txt--left
+        i.fa.fa-forward.px2((click)="goForward()", [attr.disabled]="!canGoForward()")
+        i.fa.fa-step-forward.px2((click)="goEnd()")
+      div.grd-row-col-2-6.txt--right
+        span {{ (currentSlideIndex + 1) + '/'+ (presentation.slides.length) }}

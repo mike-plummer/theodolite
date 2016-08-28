@@ -1,6 +1,6 @@
-import { Presentation } from '../model/Presentation';
+import { Presentation } from '../common/model/Presentation';
 import { Injectable } from '@angular/core';
-import { Slide } from '../model/Slide';
+import { Slide } from '../common/model/Slide';
 
 @Injectable()
 export class ParseService {

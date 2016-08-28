@@ -1,6 +1,6 @@
 import { Component, HostListener, ViewChild } from '@angular/core';
 import { ModalComponent } from '../modal/modal.component';
-import { KEYCODES } from '../util/keycodes';
+import { KEYCODES } from '../common/keycodes';
 
 @Component({
     selector: 'tdlt-about',

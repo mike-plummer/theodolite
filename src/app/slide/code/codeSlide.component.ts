@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Slide } from '../../model/Slide';
+import { Slide } from '../../common/model/Slide';
 
 @Component({
     selector: 'tdlt-code-slide',

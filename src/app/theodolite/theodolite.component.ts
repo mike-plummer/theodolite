@@ -1,6 +1,6 @@
 import { Component, ViewEncapsulation, Inject } from '@angular/core';
 import { PresentationComponent } from '../presentation/presentation.component';
-import { Presentation } from '../model/Presentation';
+import { Presentation } from '../common/model/Presentation';
 import { ParseService } from '../parse/parse.service';
 
 @Component({

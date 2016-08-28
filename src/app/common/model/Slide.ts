@@ -8,6 +8,6 @@ export class Slide {
     }
 
     set contentFile(filename) {
-        this.content = require(`raw!./../../../content/${filename}`).toString();
+        this.content = require(`raw!./../../../../content/${filename}`).toString();
     }
 }

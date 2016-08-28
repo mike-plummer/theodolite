@@ -1,8 +1,9 @@
-import { Component, Input } from '@angular/core';
-import { Presentation } from '../model/Presentation';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Presentation } from '../common/model/Presentation';
 import { MarkdownSlideComponent } from '../slide/markdown/markdownSlide.component';
 import { CodeSlideComponent } from '../slide/code/codeSlide.component';
 import { ControlsComponent } from '../controls/controls.component';
+import { Slide } from '../common/model/Slide';
 
 @Component({
     selector: 'tdlt-presentation',
@@ -12,24 +13,23 @@ import { ControlsComponent } from '../controls/controls.component';
     styles: [ require('./presentation.scss').toString() ],
     providers: []
 })
-export class PresentationComponent {
+export class PresentationComponent implements OnInit {
+
+    @ViewChild(ControlsComponent) private controls: ControlsComponent;
 
     @Input() public presentation: Presentation;
-    public activeSlide: number = 0;
+
+    public currentSlide: Slide;
 
     constructor() {
 
     }
 
-    backward() {
-        if (this.activeSlide > 0) {
-            this.activeSlide -= 1;
-        }
+    onSlideChange(newSlide: number) {
+        this.currentSlide = this.presentation.slides[newSlide];
     }
 
-    forward() {
-        if (this.activeSlide < (this.presentation.slides.length - 1)) {
-            this.activeSlide += 1;
-        }
+    ngOnInit() {
+        this.controls.onPresentationLoad();
     }
 }
