@@ -6,7 +6,8 @@ import { Slide } from '../../common/model/Slide';
     template: require('./codeSlide.pug'),
     directives: [],
     pipes: [],
-    styles: [ require('./codeSlide.scss').toString() ],
+    styles: [ require('./../slide.scss').toString(),
+              require('./codeSlide.scss').toString() ],
     providers: []
 })
 export class CodeSlideComponent implements OnInit {

@@ -1,3 +1,11 @@
 .presentation {
+  position: relative;
+}
 
+.previous > .slide {
+  display: none;
+}
+
+.next > .slide {
+  display: none;
 }

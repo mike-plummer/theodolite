@@ -1,18 +1,9 @@
-import {
-    Component,
-    Input,
-    HostListener,
-    Output,
-    EventEmitter,
-    style,
-    state,
-    animate,
-    transition,
-    trigger
-} from '@angular/core';
+import { Component, Input, HostListener, Output, EventEmitter, style, state, animate, transition, trigger } from '@angular/core';
 import { KEYCODES } from '../common/keycodes';
 import { DefaultValuePipe } from '../common/default.pipe';
 import { Presentation } from '../common/model/Presentation';
+import { Direction } from '../common/Direction';
+import { SlideChangeEvent } from '../common/SlideChangeEvent';
 
 @Component({
     selector: 'tdlt-controls',
@@ -36,7 +27,7 @@ import { Presentation } from '../common/model/Presentation';
 })
 export class ControlsComponent {
 
-    @Output() public slideChange: EventEmitter<number> = new EventEmitter<number>();
+    @Output() public slideChange: EventEmitter<SlideChangeEvent> = new EventEmitter<SlideChangeEvent>();
     @Input() public presentation: Presentation;
     public displayed: boolean = false;
     public currentSlideIndex: number = 0;
@@ -59,23 +50,23 @@ export class ControlsComponent {
     }
 
     goStart() {
-        this.slideChange.emit(this.currentSlideIndex = 0);
+        this.slideChange.emit(new SlideChangeEvent(Direction.BACK, this.currentSlideIndex = 0));
     }
 
     goBackward() {
-        this.slideChange.emit(--this.currentSlideIndex);
+        this.slideChange.emit(new SlideChangeEvent(Direction.BACK, --this.currentSlideIndex));
     }
 
     goForward() {
-        this.slideChange.emit(++this.currentSlideIndex);
+        this.slideChange.emit(new SlideChangeEvent(Direction.FORWARD, ++this.currentSlideIndex));
     }
 
     goEnd() {
-        this.slideChange.emit(this.currentSlideIndex = this.presentation.slides.length - 1);
+        this.slideChange.emit(new SlideChangeEvent(Direction.FORWARD, this.currentSlideIndex = this.presentation.slides.length - 1));
     }
 
     onPresentationLoad() {
-        this.goStart();
+        this.currentSlideIndex = 0;
     }
 
     canGoBackward() {

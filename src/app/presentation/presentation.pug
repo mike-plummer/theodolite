@@ -1,8 +1,8 @@
 div.presentation
-  div.grd
-    div.grd-row
-      div.grd-row-col-1
-        tdlt-markdown-slide([slide]="currentSlide")
-    div.grd-row
-      div.grd-row-col-1
-        tdlt-controls([presentation]="presentation", (slideChange)="onSlideChange($event)")
+  tdlt-markdown-slide.previous([slide]="previousSlide")
+
+  tdlt-markdown-slide.current([slide]="currentSlide")
+
+  tdlt-markdown-slide.next([slide]="nextSlide")
+
+tdlt-controls([presentation]="presentation", (slideChange)="onSlideChange($event)")

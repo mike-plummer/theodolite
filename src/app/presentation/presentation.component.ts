@@ -4,6 +4,8 @@ import { MarkdownSlideComponent } from '../slide/markdown/markdownSlide.componen
 import { CodeSlideComponent } from '../slide/code/codeSlide.component';
 import { ControlsComponent } from '../controls/controls.component';
 import { Slide } from '../common/model/Slide';
+import { SlideChangeEvent } from '../common/SlideChangeEvent';
+import { Direction } from '../common/Direction';
 
 @Component({
     selector: 'tdlt-presentation',
@@ -19,17 +21,28 @@ export class PresentationComponent implements OnInit {
 
     @Input() public presentation: Presentation;
 
+    public previousSlide: Slide;
     public currentSlide: Slide;
+    public nextSlide: Slide;
 
     constructor() {
 
     }
 
-    onSlideChange(newSlide: number) {
-        this.currentSlide = this.presentation.slides[newSlide];
+    onSlideChange($event: SlideChangeEvent) {
+        if ($event.direction === Direction.BACK) {
+            this.nextSlide = this.currentSlide;
+            this.currentSlide = this.previousSlide;
+            this.previousSlide = this.presentation.slides[$event.newSlideIndex - 1];
+        } else {
+            this.previousSlide = this.currentSlide;
+            this.currentSlide = this.nextSlide;
+            this.nextSlide = this.presentation.slides[$event.newSlideIndex + 1];
+        }
     }
 
     ngOnInit() {
-        this.controls.onPresentationLoad();
+        this.currentSlide = this.presentation.slides[0];
+        this.nextSlide = this.presentation.slides[1];
     }
 }
