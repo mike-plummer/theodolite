@@ -1,6 +1,5 @@
-//div([ngSwitch]="slide.type")
-//  tdlt-markdown-slide(*ngSwitchCase="MARKDOWN" [slide]="slide")
-//  tdlt-code-slide(*ngSwitchCase="CODE" [slide]="slide")
-
-
-tdlt-markdown-slide([slide]="slide")
+div([ngSwitch]="slide.type")
+  div(*ngSwitchCase="'MARKDOWN'")
+    tdlt-markdown-slide([slide]="slide")
+  div(*ngSwitchCase="'CODE'")
+    tdlt-code-slide([slide]="slide")
