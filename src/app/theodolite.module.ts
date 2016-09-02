@@ -9,10 +9,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ControlsComponent } from './controls/controls.component';
 import { AboutComponent } from './about/about.component';
 import { ModalComponent } from './modal/modal.component';
+import { SlideComponent } from './slide/slide.component';
+import { DefaultValuePipe } from './common/default.pipe';
 
 @NgModule({
     imports: [ BrowserModule ],
-    declarations: [ TheodoliteComponent, PresentationComponent, MarkdownSlideComponent, CodeSlideComponent, ControlsComponent, AboutComponent, ModalComponent ],
+    declarations: [ TheodoliteComponent, PresentationComponent, SlideComponent, MarkdownSlideComponent,
+                    CodeSlideComponent, ControlsComponent, AboutComponent, ModalComponent, DefaultValuePipe ],
     bootstrap: [ TheodoliteComponent ],
     providers: [ MarkdownService, ParseService ]
 })

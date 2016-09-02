@@ -3,10 +3,7 @@ import { Component, Input } from '@angular/core';
 @Component({
     selector: 'tdlt-modal',
     template: require('./modal.pug'),
-    directives: [],
-    pipes: [],
-    styles: [ require('./modal.scss').toString() ],
-    providers: []
+    styles: [ require('./modal.scss').toString() ]
 })
 export class ModalComponent {
 

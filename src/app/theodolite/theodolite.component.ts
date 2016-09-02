@@ -6,7 +6,6 @@ import { ParseService } from '../parse/parse.service';
 @Component({
     selector: 'theodolite',
     template: require('./theodolite.pug'),
-    directives: [ PresentationComponent ],
     styles: [ require('./theodolite.scss').toString(),
               require('furtive/css/furtive.min.css').toString(),
               require('font-awesome/css/font-awesome.min.css').toString() ],

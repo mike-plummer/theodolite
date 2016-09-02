@@ -8,6 +8,9 @@
     }, {
       "type": "MARKDOWN",
       "contentFile": "slide_2.md"
+    }, {
+      "type": "CODE",
+      "contentFile": "slide_3.txt"
     }
   ]
 }

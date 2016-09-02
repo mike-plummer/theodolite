@@ -10,10 +10,7 @@ import { Direction } from '../common/Direction';
 @Component({
     selector: 'tdlt-presentation',
     template: require('./presentation.pug'),
-    directives: [ ControlsComponent, MarkdownSlideComponent, CodeSlideComponent ],
-    pipes: [],
-    styles: [ require('./presentation.scss').toString() ],
-    providers: []
+    styles: [ require('./presentation.scss').toString() ]
 })
 export class PresentationComponent implements OnInit {
 

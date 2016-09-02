@@ -1,32 +1,30 @@
-import { Component, Inject, Input, SimpleChange, OnChanges } from '@angular/core';
+import { Component, Inject, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { MarkdownService } from '../../markdown/markdown.service';
 import { Slide } from '../../common/model/Slide';
-import { DomSanitizationService, SafeHtml } from '@angular/platform-browser';
+import { SafeHtml, DomSanitizer } from '@angular/platform-browser';
 
 @Component({
     selector: 'tdlt-markdown-slide',
     template: require('./markdownSlide.pug'),
-    directives: [],
-    pipes: [],
-    styles: [ require('./../slide.scss').toString(),
-              require('./markdownSlide.scss').toString(),
-              require('highlight.js/styles/default.css').toString() ],
-    providers: []
+    styles: [ require('./markdownSlide.scss').toString(),
+              require('highlight.js/styles/default.css').toString() ]
 })
 export class MarkdownSlideComponent implements OnChanges {
 
     @Input() public slide: Slide;
     public content: SafeHtml;
 
-    constructor(@Inject(DomSanitizationService) private domSanitizationService: DomSanitizationService,
+    constructor(@Inject(DomSanitizer) private domSanitizer: DomSanitizer,
                 @Inject(MarkdownService) private markdownService: MarkdownService) {
+        console.log('markdown slide!');
     }
 
-    ngOnChanges(changes: {[propertyName: string]: SimpleChange}) {
+    ngOnChanges(changes: SimpleChanges) {
         if (changes[ 'slide' ]) {
-            if (this.slide && this.slide.content) {
-                let markdownContent = this.markdownService.parse(this.slide.content);
-                this.content = this.domSanitizationService.bypassSecurityTrustHtml(markdownContent);
+            if (this.slide) {
+                let fileContent = require(`raw!./../../../../content/${this.slide.contentFile}`);
+                let markdownContent = this.markdownService.parse(fileContent);
+                this.content = this.domSanitizer.bypassSecurityTrustHtml(markdownContent);
             } else {
                 this.content = null;
             }

@@ -1,8 +1,5 @@
 div.presentation
-  tdlt-markdown-slide.previous([slide]="previousSlide")
 
-  tdlt-markdown-slide.current([slide]="currentSlide")
+  tdlt-slide([slide]="currentSlide")
 
-  tdlt-markdown-slide.next([slide]="nextSlide")
-
-tdlt-controls([presentation]="presentation", (slideChange)="onSlideChange($event)")
+  tdlt-controls([presentation]="presentation", (slideChange)="onSlideChange($event)")

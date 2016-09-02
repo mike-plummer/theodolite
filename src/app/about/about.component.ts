@@ -5,10 +5,7 @@ import { KEYCODES } from '../common/keycodes';
 @Component({
     selector: 'tdlt-about',
     template: require('./about.pug'),
-    directives: [ ModalComponent ],
-    pipes: [],
-    styles: [ require('./about.scss').toString() ],
-    providers: []
+    styles: [ require('./about.scss').toString() ]
 })
 export class AboutComponent {
 

@@ -1,2 +1,4 @@
 div.slide.code-slide
-p Code!
+  div.content
+    pre
+      code([ngClass]="slide?.language") {{ slide?.content }}

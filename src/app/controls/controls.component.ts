@@ -8,10 +8,7 @@ import { SlideChangeEvent } from '../common/SlideChangeEvent';
 @Component({
     selector: 'tdlt-controls',
     template: require('./controls.pug'),
-    directives: [],
-    pipes: [ DefaultValuePipe ],
     styles: [ require('./controls.scss').toString() ],
-    providers: [],
     animations: [
         trigger('slideUpDown', [
             state('in', style({transform: 'translateX(0)'})),
