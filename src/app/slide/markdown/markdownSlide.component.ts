@@ -16,7 +16,7 @@ export class MarkdownSlideComponent implements OnChanges {
 
     constructor(@Inject(DomSanitizer) private domSanitizer: DomSanitizer,
                 @Inject(MarkdownService) private markdownService: MarkdownService) {
-        console.log('markdown slide!');
+
     }
 
     ngOnChanges(changes: SimpleChanges) {

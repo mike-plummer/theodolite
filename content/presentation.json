@@ -10,6 +10,7 @@
       "contentFile": "slide_2.md"
     }, {
       "type": "CODE",
+      "language": "typescript",
       "contentFile": "slide_3.txt"
     }
   ]

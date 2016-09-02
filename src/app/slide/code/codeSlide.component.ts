@@ -1,5 +1,6 @@
-import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges, ElementRef, ViewChild, Inject } from '@angular/core';
 import { Slide } from '../../common/model/Slide';
+import { SafeHtml, DomSanitizer } from '@angular/platform-browser';
 
 const Highlight = require('highlight.js');
 
@@ -8,26 +9,28 @@ const Highlight = require('highlight.js');
     template: require('./codeSlide.pug'),
     styles: [ require('./codeSlide.scss').toString() ]
 })
-export class CodeSlideComponent implements OnInit, OnChanges {
+export class CodeSlideComponent implements OnChanges {
 
     @Input() public slide: Slide;
-    public content: string;
+    public content: SafeHtml;
 
-    constructor() {
-        console.log('code slide!');
-    }
+    constructor(@Inject(DomSanitizer) private domSanitizer: DomSanitizer) {
 
-    ngOnInit(): void {
-        Highlight.initHighlighting();
     }
 
     ngOnChanges(changes: SimpleChanges) {
-        if (changes[ 'slide' ]) {
-            if (this.slide) {
-                this.content = require(`raw!./../../../../content/${this.slide.contentFile}`);
+        let slideChange = changes['slide'];
+        if (slideChange) {
+            let rawCode = require(`raw!./../../../../content/${slideChange.currentValue.contentFile}`);
+
+            let htmlContent;
+            if (this.slide.language) {
+                htmlContent = Highlight.highlightAuto(rawCode, [ this.slide.language ]);
             } else {
-                this.content = null;
+                htmlContent = Highlight.highlightAuto(rawCode)
             }
+
+            this.content = this.domSanitizer.bypassSecurityTrustHtml(htmlContent.value);
         }
     }
 }

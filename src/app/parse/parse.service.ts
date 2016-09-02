@@ -16,7 +16,7 @@ export class ParseService {
     private transform(key, value): any {
         if (key === 'slides') {
             return value.map(obj => {
-                return new Slide(obj.contentFile, obj.type);
+                return new Slide(obj.contentFile, obj.type, obj.language);
             });
         }
 
