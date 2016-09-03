@@ -7,8 +7,8 @@ import { ParseService } from '../parse/parse.service';
     selector: 'theodolite',
     template: require('./theodolite.pug'),
     styles: [ require('./theodolite.scss').toString(),
-              require('furtive/css/furtive.min.css').toString(),
-              require('font-awesome/css/font-awesome.min.css').toString() ],
+              require('furtive/scss/all.scss').toString(),
+              require('font-awesome/scss/font-awesome.scss').toString() ],
     encapsulation: ViewEncapsulation.None
 })
 export class TheodoliteComponent {
