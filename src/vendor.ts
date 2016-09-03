@@ -3,14 +3,13 @@ import '@angular/platform-browser';
 import '@angular/platform-browser-dynamic';
 import '@angular/core';
 import '@angular/common';
-// import '@angular/router';
 
 // Libraries
-import 'highlight.js';
+import 'prismjs';
 import 'marked';
 import 'lodash';
 
 // Styles
-require('furtive/css/furtive.min.css');
-require('highlight.js/styles/default.css');
-require('font-awesome/css/font-awesome.min.css');
+require('furtive/scss/all.scss');
+require('prismjs/themes/prism.css');
+require('font-awesome/scss/font-awesome.scss');

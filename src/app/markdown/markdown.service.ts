@@ -1,15 +1,15 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
+import { HighlightService } from '../highlight/highlight.service';
 
-const highlightjs = require('highlight.js');
 const marked = require('marked');
 
 @Injectable()
 export class MarkdownService {
 
-    constructor() {
+    constructor(@Inject(HighlightService) private highlightService: HighlightService) {
         marked.setOptions({
-            highlight: function (code) {
-                return highlightjs.highlightAuto(code).value;
+            highlight: function (code, lang) {
+                return highlightService.highlight(code, lang);
             }
         });
     }
@@ -18,7 +18,3 @@ export class MarkdownService {
         return marked(markdown);
     }
 }
-
-
-
-

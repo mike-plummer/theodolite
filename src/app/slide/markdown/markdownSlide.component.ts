@@ -7,7 +7,7 @@ import { SafeHtml, DomSanitizer } from '@angular/platform-browser';
     selector: 'tdlt-markdown-slide',
     template: require('./markdownSlide.pug'),
     styles: [ require('./markdownSlide.scss').toString(),
-              require('highlight.js/styles/default.css').toString() ]
+              require('prismjs/themes/prism.css').toString() ]
 })
 export class MarkdownSlideComponent implements OnChanges {
 
