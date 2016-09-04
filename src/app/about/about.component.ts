@@ -11,8 +11,8 @@ export class AboutComponent {
 
     @ViewChild(ModalComponent) private modal: ModalComponent;
 
-    public title: string = 'About';
-    public content: string = require('./about-modal.pug');
+    public title: string = require('./about-modal-title.pug');
+    public content: string = require('./about-modal-content.pug');
 
     constructor() {
     }

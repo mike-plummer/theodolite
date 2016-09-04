@@ -30,7 +30,7 @@ module.exports = {
         excludes: ['./src/index.html'],
         loader: 'html'
       }, {
-        test: /\.pug$/,
+        test: /\.(pug|jade)$/,
         exclude: /node_modules/,
         loader: 'html!pug-html-loader'
       }, {

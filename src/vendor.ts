@@ -18,3 +18,4 @@ import 'lodash';
 require('furtive/scss/all.scss');
 require('prismjs/themes/prism.css');
 require('font-awesome/scss/font-awesome.scss');
+require('./assets/fonts/font.scss');
