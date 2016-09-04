@@ -11,7 +11,7 @@
     }, {
       "type": "CODE",
       "language": "typescript",
-      "contentFile": "slide_3.txt"
+      "contentFile": "slide_3.ts"
     }
   ]
 }

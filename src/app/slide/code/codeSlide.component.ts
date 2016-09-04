@@ -22,7 +22,7 @@ export class CodeSlideComponent implements OnChanges {
     ngOnChanges(changes: SimpleChanges) {
         let slideChange = changes['slide'];
         if (slideChange) {
-            let rawCode = require(`raw!./../../../../content/${slideChange.currentValue.contentFile}`);
+            let rawCode = require(`!!raw!./../../../../content/${slideChange.currentValue.contentFile}`);
             let htmlContent = this.highlightService.highlight(rawCode, this.slide.language);
 
             this.content = this.domSanitizer.bypassSecurityTrustHtml(htmlContent);
