@@ -6,6 +6,11 @@ import '@angular/common';
 
 // Libraries
 import 'prismjs';
+// Use a variable to trick webpack into bundling everything under prismjs/components
+// into the vendor bundle
+const exemplarFilename = 'prism-typescript.js';
+require(`prismjs/components/${exemplarFilename}`);
+
 import 'marked';
 import 'lodash';
 
