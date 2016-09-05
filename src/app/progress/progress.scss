@@ -1,0 +1,26 @@
+@import '~furtive/scss/all.scss';
+
+.progress {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  display: inline-block;
+
+  .elapsed {
+    @extend .bg--orange;
+    height: 5px;
+    display: inline-block;
+    float: left;
+    transition: width 0.5s;
+  }
+
+  .remaining {
+    @extend .bg--mid-gray;
+    height: 5px;
+    display: inline-block;
+    float: right;
+    transition: width 0.5s;
+  }
+}

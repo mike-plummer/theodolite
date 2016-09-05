@@ -28,7 +28,3 @@ export class ParseService {
         return value;
     }
 }
-
-
-
-

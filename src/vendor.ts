@@ -4,6 +4,8 @@ import '@angular/platform-browser-dynamic';
 import '@angular/core';
 import '@angular/common';
 
+import 'rxjs';
+
 // Libraries
 import 'prismjs';
 // Use a variable to trick webpack into bundling everything under prismjs/components

@@ -1,9 +1,10 @@
-import { Component, Input, HostListener, Output, EventEmitter, style, state, animate, transition, trigger } from '@angular/core';
+import { Component, HostListener, style, state, animate, transition, trigger, Inject, Input } from '@angular/core';
 import { KEYCODES } from '../common/keycodes';
-import { DefaultValuePipe } from '../common/default.pipe';
-import { Presentation } from '../common/model/Presentation';
 import { Direction } from '../common/Direction';
 import { SlideChangeEvent } from '../common/SlideChangeEvent';
+import { EventsService } from '../events/events.service';
+import { Subscription } from 'rxjs';
+import { Presentation } from '../common/model/Presentation';
 
 @Component({
     selector: 'tdlt-controls',
@@ -24,12 +25,13 @@ import { SlideChangeEvent } from '../common/SlideChangeEvent';
 })
 export class ControlsComponent {
 
-    @Output() public slideChange: EventEmitter<SlideChangeEvent> = new EventEmitter<SlideChangeEvent>();
-    @Input() public presentation: Presentation;
     public displayed: boolean = false;
     public currentSlideIndex: number = 0;
+    @Input() public presentation: Presentation;
 
-    constructor() {
+    private slideCountSubscription: Subscription;
+
+    constructor(@Inject(EventsService) private eventsService: EventsService) {
 
     }
 
@@ -37,7 +39,7 @@ export class ControlsComponent {
         if ($event.keyCode == KEYCODES.SPACE) {
             this.displayed = !this.displayed;
             return false;
-        } else if ($event.keyCode == KEYCODES.LEFT && this.canGoBackward()) {
+        } else if ($event.keyCode == KEYCODES.LEFT) {
             this.goBackward();
         } else if ($event.keyCode == KEYCODES.RIGHT && this.canGoForward()) {
             this.goForward();
@@ -47,23 +49,23 @@ export class ControlsComponent {
     }
 
     goStart() {
-        this.slideChange.emit(new SlideChangeEvent(Direction.BACK, this.currentSlideIndex = 0));
+        this.eventsService.slideChanged.next(new SlideChangeEvent(Direction.BACK, this.currentSlideIndex = 0));
     }
 
     goBackward() {
-        this.slideChange.emit(new SlideChangeEvent(Direction.BACK, --this.currentSlideIndex));
+        if (this.canGoBackward()) {
+            this.eventsService.slideChanged.next(new SlideChangeEvent(Direction.BACK, --this.currentSlideIndex));
+        }
     }
 
     goForward() {
-        this.slideChange.emit(new SlideChangeEvent(Direction.FORWARD, ++this.currentSlideIndex));
+        if (this.canGoForward()) {
+            this.eventsService.slideChanged.next(new SlideChangeEvent(Direction.FORWARD, ++this.currentSlideIndex));
+        }
     }
 
     goEnd() {
-        this.slideChange.emit(new SlideChangeEvent(Direction.FORWARD, this.currentSlideIndex = this.presentation.slides.length - 1));
-    }
-
-    onPresentationLoad() {
-        this.currentSlideIndex = 0;
+        this.eventsService.slideChanged.next(new SlideChangeEvent(Direction.FORWARD, this.currentSlideIndex = this.presentation.slides.length - 1));
     }
 
     canGoBackward() {

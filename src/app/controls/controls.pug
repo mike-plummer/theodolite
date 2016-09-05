@@ -6,9 +6,9 @@ div.controls.bg--blue.fnt--off-white(*ngIf="displayed", [@slideUpDown]="displaye
         span(*ngIf="presentation.author") {{ ' - ' + presentation.author }}
       div.grd-row-col-2-6.txt--right
         i.fa.fa-step-backward.px2((click)="goStart()")
-        i.fa.fa-backward.px2((click)="goBackward()", [attr.disabled]="!canGoBackward()")
+        i.fa.fa-backward.px2((click)="goBackward()")
       div.grd-row-col-1-6.txt--left
-        i.fa.fa-forward.px2((click)="goForward()", [attr.disabled]="!canGoForward()")
+        i.fa.fa-forward.px2((click)="goForward()")
         i.fa.fa-step-forward.px2((click)="goEnd()")
       div.grd-row-col-2-6.txt--right
         span {{ (currentSlideIndex + 1) + '/'+ (presentation.slides.length) }}

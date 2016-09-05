@@ -12,13 +12,16 @@ import { ModalComponent } from './modal/modal.component';
 import { SlideComponent } from './slide/slide.component';
 import { DefaultValuePipe } from './common/default.pipe';
 import { HighlightService } from './highlight/highlight.service';
+import { EventsService } from './events/events.service';
+import { ProgressComponent } from './progress/progress.component';
 
 @NgModule({
     imports: [ BrowserModule ],
     declarations: [ TheodoliteComponent, PresentationComponent, SlideComponent, MarkdownSlideComponent,
-                    CodeSlideComponent, ControlsComponent, AboutComponent, ModalComponent, DefaultValuePipe ],
+                    CodeSlideComponent, ControlsComponent, AboutComponent, ModalComponent, DefaultValuePipe,
+                    ProgressComponent ],
     bootstrap: [ TheodoliteComponent ],
-    providers: [ HighlightService, MarkdownService, ParseService ]
+    providers: [ EventsService, HighlightService, MarkdownService, ParseService ]
 })
 export class TheodoliteModule {
     constructor() {
