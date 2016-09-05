@@ -1,6 +1,7 @@
 import { Presentation } from '../common/model/Presentation';
 import { Injectable } from '@angular/core';
 import { Slide } from '../common/model/Slide';
+import { CodeSlide } from '../common/model/CodeSlide';
 
 @Injectable()
 export class ParseService {
@@ -16,7 +17,11 @@ export class ParseService {
     private transform(key, value): any {
         if (key === 'slides') {
             return value.map(obj => {
-                return new Slide(obj.contentFile, obj.type, obj.language);
+                if (obj.type === 'CODE') {
+                    return new CodeSlide(obj.contentFile, obj.type, obj.style, obj.language);
+                } else {
+                    return new Slide(obj.contentFile, obj.type, obj.style);
+                }
             });
         }
 

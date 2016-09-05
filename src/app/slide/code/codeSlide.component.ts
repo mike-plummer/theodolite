@@ -1,7 +1,7 @@
 import { Component, Input, OnChanges, SimpleChanges, Inject } from '@angular/core';
-import { Slide } from '../../common/model/Slide';
 import { SafeHtml, DomSanitizer } from '@angular/platform-browser';
 import { HighlightService } from '../../highlight/highlight.service';
+import { CodeSlide } from '../../common/model/CodeSlide';
 
 @Component({
     selector: 'tdlt-code-slide',
@@ -11,7 +11,7 @@ import { HighlightService } from '../../highlight/highlight.service';
 })
 export class CodeSlideComponent implements OnChanges {
 
-    @Input() public slide: Slide;
+    @Input() public slide: CodeSlide;
     public content: SafeHtml;
 
     constructor(@Inject(DomSanitizer) private domSanitizer: DomSanitizer,
