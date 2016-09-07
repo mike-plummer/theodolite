@@ -1,11 +1,10 @@
+@import '../theodolite/theodolite';
+
 .presentation {
+  @include stretch();
+
   position: relative;
-}
 
-.previous > .slide {
-  display: none;
-}
-
-.next > .slide {
-  display: none;
+  min-height: 100vh;
+  height: 100%;
 }

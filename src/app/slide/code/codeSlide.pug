@@ -1,4 +1,5 @@
 div.slide.code-slide
   div.content
+    h2(*ngIf="slide.title") {{ slide.title }}
     pre
       code([innerHTML]="content")

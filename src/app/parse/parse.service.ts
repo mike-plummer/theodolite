@@ -18,7 +18,7 @@ export class ParseService {
         if (key === 'slides') {
             return value.map(obj => {
                 if (obj.type === 'CODE') {
-                    return new CodeSlide(obj.contentFile, obj.type, obj.style, obj.language);
+                    return new CodeSlide(obj.contentFile, obj.type, obj.style, obj.language, obj.title);
                 } else {
                     return new Slide(obj.contentFile, obj.type, obj.style);
                 }

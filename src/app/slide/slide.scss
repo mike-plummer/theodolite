@@ -1,3 +1,5 @@
-.slide {
+@import '../theodolite/theodolite';
 
+.slide {
+  @include stretch();
 }

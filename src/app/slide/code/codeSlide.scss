@@ -1,8 +1,22 @@
 @import '~furtive/scss/all.scss';
+@import '../../theodolite/theodolite';
 
 .code-slide {
+  @include stretch();
+
   .content {
     @extend .bg--dark-gray;
+    @include stretch();
+
+    h2 {
+      @extend .fnt--off-white;
+      @extend .txt--center;
+
+      flex: 0 0 auto;
+      font-variant: small-caps;
+    }
+
+    min-height: 100vh;
     padding: 15px;
 
     > pre {

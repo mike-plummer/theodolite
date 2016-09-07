@@ -1,3 +1,8 @@
+html,
+body {
+  height: 100%;
+}
+
 .theodolite {
   .retro {
     color: #d7ceb2;
@@ -5,5 +10,16 @@
     font-family: 'Bazar', sans-serif;
     letter-spacing: 0.1em;
     font-variant: small-caps;
+  }
+}
+
+@mixin stretch() {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  flex: 1 1 auto;
+
+  > * {
+    flex: 1 1 auto;
   }
 }

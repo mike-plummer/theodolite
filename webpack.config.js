@@ -9,7 +9,7 @@ module.exports = {
   entry: {
     vendor: './src/vendor.ts',
     polyfills: './src/polyfills.ts',
-    main: './src/main.ts'
+    app: './src/app.ts'
   },
   output: {
     filename: '[name].bundle.js',
