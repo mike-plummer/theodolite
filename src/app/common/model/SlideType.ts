@@ -1,6 +1,6 @@
 
-export const enum SlideType {
+export enum SlideType {
     MARKDOWN,
     CODE,
-    CUSTOM
+    PUG
 }

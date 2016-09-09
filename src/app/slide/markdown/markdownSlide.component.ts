@@ -22,7 +22,7 @@ export class MarkdownSlideComponent implements OnChanges {
     ngOnChanges(changes: SimpleChanges) {
         if (changes[ 'slide' ]) {
             if (this.slide) {
-                let fileContent = require(`raw!./../../../../content/${this.slide.contentFile}`);
+                let fileContent = require(`!!raw!./../../../../content/${this.slide.contentFile}`);
                 let markdownContent = this.markdownService.parse(fileContent);
                 this.content = this.domSanitizer.bypassSecurityTrustHtml(markdownContent);
             } else {

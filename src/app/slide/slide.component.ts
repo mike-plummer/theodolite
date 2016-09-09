@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Slide } from '../common/model/Slide';
+import {SlideType} from "../common/model/SlideType";
 
 @Component({
     selector: 'tdlt-slide',
@@ -7,6 +8,8 @@ import { Slide } from '../common/model/Slide';
     styles: [ require('./slide.scss').toString() ]
 })
 export class SlideComponent {
+
+    public slideType = SlideType;
 
     @Input() public slide: Slide;
 

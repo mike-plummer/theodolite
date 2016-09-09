@@ -14,12 +14,15 @@ import { DefaultValuePipe } from './common/default.pipe';
 import { HighlightService } from './highlight/highlight.service';
 import { EventsService } from './events/events.service';
 import { ProgressComponent } from './progress/progress.component';
+import { HmsPipe } from "./common/hms.pipe";
+import {TimerComponent} from "./timer/timer.component";
+import {PugSlideComponent} from "./slide/pug/pugSlide.component";
 
 @NgModule({
     imports: [ BrowserModule ],
     declarations: [ TheodoliteComponent, PresentationComponent, SlideComponent, MarkdownSlideComponent,
                     CodeSlideComponent, ControlsComponent, AboutComponent, ModalComponent, DefaultValuePipe,
-                    ProgressComponent ],
+                    ProgressComponent, HmsPipe, TimerComponent, PugSlideComponent ],
     bootstrap: [ TheodoliteComponent ],
     providers: [ EventsService, HighlightService, MarkdownService, ParseService ]
 })

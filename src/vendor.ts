@@ -8,6 +8,7 @@ import 'rxjs';
 
 // Libraries
 import 'prismjs';
+import 'moment';
 // Use a variable to trick webpack into bundling everything under prismjs/components
 // into the vendor bundle
 const exemplarFilename = 'prism-typescript.js';

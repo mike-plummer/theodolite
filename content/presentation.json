@@ -3,16 +3,19 @@
   "author": "Mike Plummer",
   "slides": [
     {
-      "type": "MARKDOWN",
-      "contentFile": "slide_1.md"
+      "type": "PUG",
+      "contentFile": "slide_1.pug"
     }, {
       "type": "MARKDOWN",
       "contentFile": "slide_2.md"
     }, {
+      "type": "MARKDOWN",
+      "contentFile": "slide_3.md"
+    }, {
       "type": "CODE",
       "title": "Example Code Slide",
       "language": "typescript",
-      "contentFile": "slide_3.ts"
+      "contentFile": "slide_4.ts"
     }
   ]
 }
