@@ -1,4 +1,4 @@
-div.timer(*ngIf="displayed", [@slideUpDown]="displayed")
+div.timer.bg--off-white(*ngIf="displayed", [@slideUpDown]="displayed")
     h1 {{ elapsedSeconds | hms }}
     span
         i.fa.px2((click)="toggle()",
