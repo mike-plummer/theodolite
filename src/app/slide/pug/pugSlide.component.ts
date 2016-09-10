@@ -23,7 +23,7 @@ export class PugSlideComponent implements OnChanges {
                 // This allows Webpack dynamic file require to safely bundle files it knows will work with
                 // the pug-html-loader
                 let fileName = this.slide.contentFile.substring(0, this.slide.contentFile.lastIndexOf('.'));
-                let fileContent = require(`!!html!pug-html-loader!./../../../../content/${fileName}.pug`);
+                let fileContent = require(`!!html!pug-html-loader!content/${fileName}.pug`);
                 this.content = this.domSanitizer.bypassSecurityTrustHtml(fileContent);
             } else {
                 this.content = null;

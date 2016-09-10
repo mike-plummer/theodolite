@@ -18,6 +18,10 @@ module.exports = {
   },
   devtool: 'source-map',
   resolve: {
+    alias: {
+      assets: __dirname + "/assets",
+      content: __dirname + "/content"
+    },
     extensions: ['', '.ts', '.js']
   },
   module: {
