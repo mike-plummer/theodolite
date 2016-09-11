@@ -26,6 +26,7 @@
     "@angular/platform-browser": "2.0.0-rc.6",
     "@angular/platform-browser-dynamic": "2.0.0-rc.6",
     "@angular/router": "3.0.0-rc.2",
+    "animate.css": "^3.5.2",
     "core-js": "^2.4.1",
     "font-awesome": "^4.6.3",
     "furtive": "^2.2.4",

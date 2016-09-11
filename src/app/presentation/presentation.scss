@@ -3,6 +3,7 @@
 .presentation {
   @include stretch();
 
+  overflow-x: hidden;
   position: relative;
 
   min-height: 100vh;

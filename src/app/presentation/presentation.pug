@@ -1,6 +1,9 @@
 div.presentation
 
-  tdlt-slide([slide]="currentSlide")
+  tdlt-slide([slide]="currentSlide",
+    (animationend)="onAnimationEnd()")
+  tdlt-slide([slide]="nextSlide" ,
+    (animationend)="onAnimationEnd()")
 
   tdlt-controls([presentation]="presentation")
 

@@ -2,4 +2,5 @@
 
 .slide {
   @include stretch();
+  animation-duration: 0.5s;
 }

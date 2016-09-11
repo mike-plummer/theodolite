@@ -18,6 +18,7 @@ import 'marked';
 import 'lodash';
 
 // Styles
+require('animate.css/animate.css');
 require('furtive/scss/all.scss');
 require('prismjs/themes/prism.css');
 require('font-awesome/scss/font-awesome.scss');

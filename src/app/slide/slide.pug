@@ -1,4 +1,4 @@
-div([ngSwitch]="slide.type")
+div(*ngIf="slide", [ngSwitch]="slide.type", [class]="animation")
   div(*ngSwitchCase="slideType.MARKDOWN")
     tdlt-markdown-slide([slide]="slide")
   div(*ngSwitchCase="slideType.CODE")
