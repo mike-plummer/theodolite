@@ -13,6 +13,10 @@ body {
   }
 }
 
+.inline {
+  display: inline-block;
+}
+
 @mixin stretch() {
   display: flex;
   flex-direction: column;
