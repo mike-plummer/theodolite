@@ -25,5 +25,31 @@
       box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.25), 0 1px 1px rgba(255, 255, 255, 0.3);
       padding: 15px;
     }
+
+    .code-content {
+      padding-left: 25px;
+    }
+  }
+
+  .line-numbers {
+    position: fixed;
+    width: calc(100% - 50px);
+  }
+
+  .line-number {
+    @extend .fnt--off-white;
+    display: inline-block;
+    padding: 0 2px;
+  }
+
+  .line-number-enabled {
+    @extend .bg--dark-gray;
+  }
+
+  .inactive-line {
+    @extend .bg--off-white;
+
+    width: 100%;
+    opacity: 0.8;
   }
 }

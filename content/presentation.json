@@ -15,7 +15,8 @@
       "type": "CODE",
       "title": "Example Code Slide",
       "language": "typescript",
-      "contentFile": "slide_4.ts"
+      "contentFile": "slide_4.ts",
+      "showLineNumbers": true
     }
   ]
 }

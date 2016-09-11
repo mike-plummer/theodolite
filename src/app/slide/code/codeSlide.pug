@@ -2,4 +2,9 @@ div.slide.code-slide
   div.content
     h2(*ngIf="slide.title") {{ slide.title }}
     pre
-      code([innerHTML]="content")
+      div.line-numbers
+        div.line(*ngFor="let line of lineNumbers",
+          [ngClass]="{'inactive-line': isLineInactive(line)}")
+          div.line-number([ngClass]="{'line-number-enabled': slide.showLineNumbers}") {{ slide.showLineNumbers ? line : ' ' }}
+      div.code-content
+        code([innerHTML]="content")
