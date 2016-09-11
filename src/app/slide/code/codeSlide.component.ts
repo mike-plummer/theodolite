@@ -37,6 +37,9 @@ export class CodeSlideComponent implements OnChanges {
     }
 
     isLineInactive(line: number) {
-        return line < 2 || line > 5;
+        if (this.slide.highlightLines && this.slide.highlightLines.length > 0) {
+            return !this.slide.highlightLines.includes(line);
+        }
+        return false;
     }
 }

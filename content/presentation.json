@@ -16,7 +16,8 @@
       "title": "Example Code Slide",
       "language": "typescript",
       "contentFile": "slide_4.ts",
-      "showLineNumbers": true
+      "showLineNumbers": true,
+      "highlightLines": "[2, 5-6]"
     }
   ]
 }
