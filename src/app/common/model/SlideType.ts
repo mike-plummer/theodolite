@@ -1,6 +1,6 @@
 
 export enum SlideType {
-    MARKDOWN,
-    CODE,
-    PUG
+    MARKDOWN = <any> 'MARKDOWN',
+    CODE = <any> 'CODE',
+    PUG = <any> 'PUG'
 }

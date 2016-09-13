@@ -32,11 +32,11 @@ export class ParseService {
                             }
                         });
                     }
-                    return new CodeSlide(obj.contentFile, obj.entranceAnimation, obj.exitAnimation, obj.language, obj.title, obj.showLineNumbers, highlightLines);
+                    return new CodeSlide(obj.contentFile, obj.transition, obj.language, obj.title, obj.showLineNumbers, highlightLines);
                 } else if (obj.type === 'PUG') {
-                    return new Slide(obj.contentFile, SlideType.PUG, obj.entranceAnimation, obj.exitAnimation);
+                    return new Slide(obj.contentFile, SlideType.PUG, obj.transition);
                 } else {
-                    return new Slide(obj.contentFile, SlideType.MARKDOWN, obj.entranceAnimation, obj.exitAnimation);
+                    return new Slide(obj.contentFile, SlideType.MARKDOWN, obj.transition);
                 }
             });
         }

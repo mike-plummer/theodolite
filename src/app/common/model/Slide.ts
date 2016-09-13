@@ -1,13 +1,12 @@
 import { uniqueId } from 'lodash';
 import { SlideType } from './SlideType';
-import { AnimationType } from './AnimationType';
+import { TransitionType } from './TransitionType';
 
 export class Slide {
 
     constructor(public contentFile: string,
                 public type: SlideType,
-                public entranceAnimation: AnimationType,
-                public exitAnimation: AnimationType,
+                public transition: TransitionType,
                 public id: string = uniqueId()) {
     }
 }

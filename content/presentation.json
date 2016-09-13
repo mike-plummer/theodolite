@@ -21,8 +21,7 @@
     },  {
       "type": "PUG",
       "contentFile": "slide_5.pug",
-      "entranceAnimation": "FADE",
-      "exitAnimation": "BOUNCE"
+      "transition": "BOUNCE"
     }
   ]
 }
