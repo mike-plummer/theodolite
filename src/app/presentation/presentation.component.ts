@@ -29,12 +29,14 @@ export class PresentationComponent implements OnInit, OnDestroy {
     }
 
     onSlideChange($event: SlideChangeEvent) {
-        this.nextSlide = this.presentation.slides[ $event.newSlideIndex ];
+        let nextSlide = this.presentation.slides[ $event.newSlideIndex ];
 
-        if (this.slideComponents) {
+        if (this.slideComponents && !isNil($event.direction)) {
             this.slideComponents.toArray()[ 0 ].exit($event.direction);
-            this.slideComponents.toArray()[ 1 ].enter($event.direction);
+            this.slideComponents.toArray()[ 1 ].enter($event.direction, nextSlide);
         }
+
+        this.nextSlide = nextSlide;
     }
 
     ngOnInit() {

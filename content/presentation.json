@@ -18,6 +18,11 @@
       "contentFile": "slide_4.ts",
       "showLineNumbers": true,
       "highlightLines": "[2, 5-6]"
+    },  {
+      "type": "PUG",
+      "contentFile": "slide_5.pug",
+      "entranceAnimation": "FADE",
+      "exitAnimation": "BOUNCE"
     }
   ]
 }
